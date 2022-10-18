@@ -27,7 +27,7 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
 main:
 	mov.w #2D97h, R4;
 	mov.w #6239h, R5;
-	mov.w #2A11h, R6;
+	mov.w #4A11h, R6;
 
 	call #funct
 	jmp $
