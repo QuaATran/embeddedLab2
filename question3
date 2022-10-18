@@ -1,0 +1,32 @@
+main:
+	mov.w #0101h, R4;
+	mov.w #0010h, R5;
+	mov.w #0001h, R6;
+
+	and R4, R6; checking if least significant bit is 1 in R4
+	and R5, R6; checking if least significant bit is 1 in R5
+
+	and #0001h, R6; setting the conditions for comparison
+	cmp #0001h, R6; see if the least significant bit is 1
+	jeq loop1
+	jmp loop2
+
+loop1:
+	mov.w #0FF0h, R9; store value into R9
+	jmp main;
+
+loop2:
+	or R4, R6; seeing if the least significant bit is 1 in R4
+	or R5, R6; seeing if the least significant bit is 1 in R5
+	and #0001h, R6; setting the conditions for comparison
+	cmp #0001h, R6; see if the least significant bit is 1
+	jeq loop3
+	jmp main;
+
+loop3:
+	inv R9; 1s complement of R9
+	mov.w R9, R10; store R9 into R10
+
+	jmp main;
+	nop
+
