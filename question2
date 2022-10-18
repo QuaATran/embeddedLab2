@@ -1,0 +1,25 @@
+#include <msp430.h> 
+
+
+/**
+ * main.c
+ */
+
+int addition(int x, int y);
+
+void main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
+
+    int a = 0b0111111111111111;
+    int b = 0b0111111111111111;
+    int o1= addition(a, b);
+
+    while(1);
+}
+
+int addition(int x, int y){
+
+    return x + y;
+
+}
