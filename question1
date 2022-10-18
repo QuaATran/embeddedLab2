@@ -1,0 +1,36 @@
+#include <msp430.h> 
+
+
+float gbl = 100;
+
+/**
+ * main.c
+ */
+void main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
+
+    int a = 50;
+
+    unsigned char i1 = 0x0000;
+    unsigned char i2 = 0xaaaa;
+
+    char o1;
+    char o2;
+
+    //part a increment local variable
+    a += 1;
+
+    //part b decrement global variable
+    gbl -= 1;
+
+    //part c perform 2 logic operations on 2 unsigned char
+    o1 = i1 | i2;
+    o2 = i1 ^ i2;
+
+    while(1);
+}
+
+
+
+
